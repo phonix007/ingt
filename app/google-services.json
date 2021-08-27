@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "845445242714",
+    "project_id": "trading-marathi-app",
+    "storage_bucket": "trading-marathi-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845445242714:android:14444dd57ecb41fc71dd63",
+        "android_client_info": {
+          "package_name": "com.tradingmarathi.learn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "845445242714-kjtpf28h1amfvovmh28kbiq0tn0jabhs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBK1j4urnSreI1yyAzfFWW6hX2K1f4p1fY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "845445242714-kjtpf28h1amfvovmh28kbiq0tn0jabhs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
