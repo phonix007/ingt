@@ -124,7 +124,6 @@ public class CandleActivity extends AppCompatActivity {
         moPubView = (MoPubView) findViewById(R.id.adview);
         moPubView.setAdUnitId(getString(R.string.mob_pub_banner)); // Enter your Ad Unit ID from www.mopub.com
         moPubView.loadAd();
-
     }
 
     @Override
