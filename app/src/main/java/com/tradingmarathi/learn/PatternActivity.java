@@ -13,10 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.google.android.play.core.review.ReviewInfo;
-import com.google.android.play.core.review.ReviewManager;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,20 +22,19 @@ import com.google.firebase.database.ValueEventListener;
 import com.mopub.common.MoPub;
 import com.mopub.common.SdkConfiguration;
 import com.mopub.common.SdkInitializationListener;
-import com.mopub.mobileads.MoPubErrorCode;
-import com.mopub.mobileads.MoPubInterstitial;
 import com.mopub.mobileads.MoPubView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CandleActivity extends AppCompatActivity {
+public class PatternActivity extends AppCompatActivity {
 
     DatabaseReference databaseReference;
     ListView listView;
     List<String> title_list, story_list, img_list;
     ArrayAdapter<String> adapter;
     MyBasic myBasic;
+
 
     private MoPubView moPubView;
 
@@ -48,7 +44,7 @@ public class CandleActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_candle);
+        setContentView(R.layout.activity_pattern);
 
         SdkConfiguration.Builder sdkConfiguration = new SdkConfiguration.Builder(getString(R.string.mob_pub_banner));
         MoPub.initializeSdk(this, sdkConfiguration.build(), initSdkListener());
@@ -91,7 +87,7 @@ public class CandleActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         // When click on any of the textview it will redirect  to the paratiular activity
-                        Intent intent = new Intent(CandleActivity.this,Candle_Next_Activity.class);
+                        Intent intent = new Intent(PatternActivity.this,Pattern_Next_Activity.class);
                         String p = story_list.get(i);
                         String urlstr = img_list.get(i);
                         intent.putExtra("key",p);
@@ -114,7 +110,6 @@ public class CandleActivity extends AppCompatActivity {
             @Override
             public void onInitializationFinished() {
                 bannerAd();
-
             }
         };
     }
@@ -132,5 +127,4 @@ public class CandleActivity extends AppCompatActivity {
         moPubView.destroy();
         super.onDestroy();
     }
-
 }
