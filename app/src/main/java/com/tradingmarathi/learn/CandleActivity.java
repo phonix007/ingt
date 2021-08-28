@@ -52,6 +52,7 @@ public class CandleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_candle);
 
         SdkConfiguration.Builder sdkConfiguration = new SdkConfiguration.Builder(getString(R.string.mob_pub_banner));
+        MoPub.initializeSdk(this, sdkConfiguration.build(), initSdkListener());
 
 
         loadingDialog = new Dialog(this);
