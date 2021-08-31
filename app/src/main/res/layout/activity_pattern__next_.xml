@@ -8,13 +8,6 @@
     tools:context=".Pattern_Next_Activity"
     android:orientation="vertical">
 
-    <com.mopub.mobileads.MoPubView
-        android:id="@+id/adview"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        app:moPubAdSize="match_view">
-
-    </com.mopub.mobileads.MoPubView>
 
     <ScrollView
         android:layout_width="match_parent"

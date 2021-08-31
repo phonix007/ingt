@@ -22,12 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.mopub.common.MoPub;
-import com.mopub.common.SdkConfiguration;
-import com.mopub.common.SdkInitializationListener;
-import com.mopub.mobileads.MoPubErrorCode;
-import com.mopub.mobileads.MoPubInterstitial;
-import com.mopub.mobileads.MoPubView;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +35,7 @@ public class CandleActivity extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     MyBasic myBasic;
 
-    private MoPubView moPubView;
+
 
     private Dialog loadingDialog;
 
@@ -49,9 +44,6 @@ public class CandleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_candle);
-
-        SdkConfiguration.Builder sdkConfiguration = new SdkConfiguration.Builder(getString(R.string.mob_pub_banner));
-        MoPub.initializeSdk(this, sdkConfiguration.build(), initSdkListener());
 
         loadingDialog = new Dialog(this);
         loadingDialog.setContentView(R.layout.loading);
@@ -108,29 +100,6 @@ public class CandleActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-    private SdkInitializationListener initSdkListener() {
-        return new SdkInitializationListener() {
-            @Override
-            public void onInitializationFinished() {
-                bannerAd();
-
-            }
-        };
-    }
-
-    private void bannerAd(){
-
-        moPubView = (MoPubView) findViewById(R.id.adview);
-        moPubView.setAdUnitId(getString(R.string.mob_pub_banner)); // Enter your Ad Unit ID from www.mopub.com
-        moPubView.loadAd();
-    }
-
-    @Override
-    protected void onDestroy() {
-        moPubView.destroy();
-        super.onDestroy();
     }
 
 }

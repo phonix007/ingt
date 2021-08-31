@@ -14,17 +14,4 @@
 
         android:layout_height="wrap_content"/>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <com.mopub.mobileads.MoPubView
-            android:id="@+id/adview"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="6dp"
-            app:moPubAdSize="match_view">
-        </com.mopub.mobileads.MoPubView>
-    </RelativeLayout>
-
 </LinearLayout>

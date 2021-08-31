@@ -19,10 +19,7 @@ import com.google.android.play.core.review.ReviewManagerFactory;
 import com.google.android.play.core.tasks.OnCompleteListener;
 import com.google.android.play.core.tasks.OnSuccessListener;
 import com.google.android.play.core.tasks.Task;
-import com.mopub.common.MoPub;
-import com.mopub.common.SdkConfiguration;
-import com.mopub.common.SdkInitializationListener;
-import com.mopub.mobileads.MoPubView;
+
 
 public class Pattern_Next_Activity extends AppCompatActivity {
 
@@ -32,8 +29,6 @@ public class Pattern_Next_Activity extends AppCompatActivity {
     ReviewManager manager;
     ReviewInfo reviewInfo;
 
-    private MoPubView moPubView;
-
     private Dialog loadingDialog;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -41,9 +36,6 @@ public class Pattern_Next_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pattern__next_);
-
-        SdkConfiguration.Builder sdkConfiguration = new SdkConfiguration.Builder(getString(R.string.mob_pub_banner));
-        MoPub.initializeSdk(this, sdkConfiguration.build(), initSdkListener());
 
         loadingDialog = new Dialog(this);
         loadingDialog.setContentView(R.layout.loading);
@@ -69,26 +61,4 @@ public class Pattern_Next_Activity extends AppCompatActivity {
 
         loadingDialog.dismiss();
     }
-
-    private SdkInitializationListener initSdkListener() {
-        return new SdkInitializationListener() {
-            @Override
-            public void onInitializationFinished() {
-                bannerAd();
-            }
-        };
-    }
-
-    private void bannerAd(){
-        moPubView = (MoPubView) findViewById(R.id.adview);
-        moPubView.setAdUnitId(getString(R.string.mob_pub_banner)); // Enter your Ad Unit ID from www.mopub.com
-        moPubView.loadAd();
-    }
-
-    @Override
-    protected void onDestroy() {
-        moPubView.destroy();
-        super.onDestroy();
-    }
-
 }
