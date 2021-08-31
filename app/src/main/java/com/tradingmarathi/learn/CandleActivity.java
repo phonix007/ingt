@@ -53,7 +53,6 @@ public class CandleActivity extends AppCompatActivity {
         SdkConfiguration.Builder sdkConfiguration = new SdkConfiguration.Builder(getString(R.string.mob_pub_banner));
         MoPub.initializeSdk(this, sdkConfiguration.build(), initSdkListener());
 
-
         loadingDialog = new Dialog(this);
         loadingDialog.setContentView(R.layout.loading);
         loadingDialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.rounded_corner));
@@ -61,7 +60,7 @@ public class CandleActivity extends AppCompatActivity {
         loadingDialog.setCancelable(false);
 
         listView = findViewById(R.id.listView);
-        databaseReference = FirebaseDatabase.getInstance().getReference("basicbook"); //
+        databaseReference = FirebaseDatabase.getInstance().getReference("candle"); //
         myBasic = new MyBasic();
         title_list = new ArrayList<>();
         story_list = new ArrayList<>();
@@ -94,8 +93,10 @@ public class CandleActivity extends AppCompatActivity {
                         Intent intent = new Intent(CandleActivity.this,Candle_Next_Activity.class);
                         String p = story_list.get(i);
                         String urlstr = img_list.get(i);
+                        String title = title_list.get(i);
                         intent.putExtra("key",p);
                         intent.putExtra("url",urlstr);
+                        intent.putExtra("title",title);
                         startActivity(intent);
                     }
                 });

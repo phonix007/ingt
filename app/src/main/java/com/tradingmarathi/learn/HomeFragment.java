@@ -43,10 +43,10 @@ public class HomeFragment extends Fragment {
                 startActivity(new Intent(getActivity(), CandleActivity.class));
             }
         });
-        view.findViewById(R.id.trading).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.qanda).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Coming Soon...", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getActivity(), CommonActivity.class));
             }
         });
         view.findViewById(R.id.share).setOnClickListener(new View.OnClickListener() {

@@ -35,7 +35,6 @@ public class PatternActivity extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     MyBasic myBasic;
 
-
     private MoPubView moPubView;
 
     private Dialog loadingDialog;
@@ -49,7 +48,6 @@ public class PatternActivity extends AppCompatActivity {
         SdkConfiguration.Builder sdkConfiguration = new SdkConfiguration.Builder(getString(R.string.mob_pub_banner));
         MoPub.initializeSdk(this, sdkConfiguration.build(), initSdkListener());
 
-
         loadingDialog = new Dialog(this);
         loadingDialog.setContentView(R.layout.loading);
         loadingDialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.rounded_corner));
@@ -57,7 +55,7 @@ public class PatternActivity extends AppCompatActivity {
         loadingDialog.setCancelable(false);
 
         listView = findViewById(R.id.listView);
-        databaseReference = FirebaseDatabase.getInstance().getReference("basicbook"); //
+        databaseReference = FirebaseDatabase.getInstance().getReference("pattern"); //
         myBasic = new MyBasic();
         title_list = new ArrayList<>();
         story_list = new ArrayList<>();
@@ -90,8 +88,10 @@ public class PatternActivity extends AppCompatActivity {
                         Intent intent = new Intent(PatternActivity.this,Pattern_Next_Activity.class);
                         String p = story_list.get(i);
                         String urlstr = img_list.get(i);
+                        String title = title_list.get(i);
                         intent.putExtra("key",p);
                         intent.putExtra("url",urlstr);
+                        intent.putExtra("title",title);
                         startActivity(intent);
                     }
                 });
@@ -115,11 +115,9 @@ public class PatternActivity extends AppCompatActivity {
     }
 
     private void bannerAd(){
-
         moPubView = (MoPubView) findViewById(R.id.adview);
         moPubView.setAdUnitId(getString(R.string.mob_pub_banner)); // Enter your Ad Unit ID from www.mopub.com
         moPubView.loadAd();
-
     }
 
     @Override
